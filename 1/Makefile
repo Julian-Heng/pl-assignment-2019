@@ -11,3 +11,6 @@ all: $(EXEC)
 
 clean:
 	$(RM) -rv $(BUILD)
+
+test: all
+	@bash test.sh
