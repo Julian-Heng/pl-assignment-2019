@@ -1,4 +1,4 @@
-#Reflection
+# Reflection
 
 FORTRAN 77, while not the original FORTRAN from the 50s, is somewhat difficult
 for me to write in, but not as hard as I thought it would.
@@ -24,9 +24,8 @@ FORTRAN allows variable to be any name including it's own syntax, which may
 hinder the reliability of the program as programmers can commonly make.
 
 
-#Weekly Question
-
-How does Fortran compare to languages you have written in previously?
+## Weekly Question
+### How does Fortran compare to languages you have written in previously?
 
 Fortran contains some similar structures found in other programming languages
 I've written before, but with some major deviations.
