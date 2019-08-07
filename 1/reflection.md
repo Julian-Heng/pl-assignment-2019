@@ -1,4 +1,5 @@
-# Reflection
+# FORTRAN 77 - Week 1
+## Reflection
 
 FORTRAN 77, while not the original FORTRAN from the 50s, is somewhat difficult
 for me to write in, but not as hard as I thought it would.
@@ -44,3 +45,5 @@ program into a Fortran program. Concepts like variable declarations, if-else
 and loops, as well as pointers are present. Function pointers are done by
 assigning function names to variables and calls to functions are done with the
 call keywords.
+
+
