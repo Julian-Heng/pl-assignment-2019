@@ -1,0 +1,18 @@
+BEGIN
+    INT start, end;
+    start := 1;
+    end := 100;
+
+    FOR i FROM start BY 1 TO end DO
+        IF i MOD 3 = 0 THEN
+            print("Fizz")
+        FI;
+        IF i MOD 5 = 0 THEN
+            print("Buzz")
+        FI;
+        IF i MOD 3 /= 0 AND i MOD 5 /= 0 THEN
+            print(whole(i,0))
+        FI;
+        print(new line)
+    OD
+END
