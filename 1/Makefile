@@ -1,4 +1,4 @@
-CC = f77
+FC = f77
 BUILD = ./build
 SOURCES := $(shell printf "%s\n" ./*.f)
 EXEC := $(SOURCES:%.f=%)
