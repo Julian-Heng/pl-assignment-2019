@@ -1,4 +1,5 @@
-#Reflection
+# FORTRAN 77 - Week 1
+## Reflection
 
 FORTRAN 77, while not the original FORTRAN from the 50s, is somewhat difficult
 for me to write in, but not as hard as I thought it would.
@@ -24,9 +25,8 @@ FORTRAN allows variable to be any name including it's own syntax, which may
 hinder the reliability of the program as programmers can commonly make.
 
 
-#Weekly Question
-
-How does Fortran compare to languages you have written in previously?
+## Weekly Question
+### How does Fortran compare to languages you have written in previously?
 
 Fortran contains some similar structures found in other programming languages
 I've written before, but with some major deviations.
@@ -45,3 +45,5 @@ program into a Fortran program. Concepts like variable declarations, if-else
 and loops, as well as pointers are present. Function pointers are done by
 assigning function names to variables and calls to functions are done with the
 call keywords.
+
+

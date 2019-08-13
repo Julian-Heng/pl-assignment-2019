@@ -10,7 +10,10 @@ all: $(EXEC)
 	$(FC) -o $(BUILD)/$@ $^
 
 clean:
-	$(RM) -rv $(BUILD)
+	$(RM) -rv $(BUILD) ./reflection.pdf
+
+docs:
+	pandoc --from=markdown --output=reflection.pdf reflection.md
 
 test: all
 	@bash test.sh
