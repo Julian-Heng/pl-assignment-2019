@@ -1,3 +1,10 @@
+---
+toc: true
+geometry: margin=25.4mm
+papersize: a4
+...
+
+\newpage
 # FORTRAN 77 - Week 1
 ## Reflection
 
@@ -26,7 +33,7 @@ hinder the reliability of the program as programmers can commonly make.
 
 
 ## Weekly Question
-### How does Fortran compare to languages you have written in previously?
+How does Fortran compare to languages you have written in previously?
 
 Fortran contains some similar structures found in other programming languages
 I've written before, but with some major deviations.
@@ -46,4 +53,4 @@ and loops, as well as pointers are present. Function pointers are done by
 assigning function names to variables and calls to functions are done with the
 call keywords.
 
-
+\newpage
