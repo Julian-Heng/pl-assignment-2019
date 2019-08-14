@@ -24,5 +24,9 @@ This style is also seen in shell scripting languages as well, except for the
 
 
 ## Weekly Question
-### Assume your program pauses when it prints out fizzbuzz. Draw the stack with all activation records, and both static and dynamic chains, at this point
+Assume your program pauses when it prints out fizzbuzz. Draw the stack with all
+activation records, and both static and dynamic chains, at this point.
 
+![](./2/Activation_Record.png "Activation Record")
+
+\newpage
