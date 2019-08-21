@@ -26,8 +26,7 @@ procedure Bubble_Sort is
     end Read_Command_Line_To_Integer_Array;
 
 
-    procedure Swap(I, J: in out Integer)
-    is
+    procedure Swap(I, J: in out Integer) is
         Temp : Integer := I;
     begin
         I := J;
