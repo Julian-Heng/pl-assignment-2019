@@ -28,9 +28,8 @@ procedure Bubble_Sort is
 
     procedure Swap(I, J: in out Integer)
     is
-        Temp : Integer;
+        Temp : Integer := I;
     begin
-        Temp := I;
         I := J;
         J := Temp;
     end Swap;
