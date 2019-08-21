@@ -26,16 +26,14 @@ procedure Bubble_Sort is
     end Read_Command_Line_To_Integer_Array;
 
 
-    procedure Swap_Elements(
-        I, J : Integer;
-        Arr  : out Integer_Array)
+    procedure Swap(I, J: in out Integer)
     is
         Temp : Integer;
     begin
-        Temp := Arr(I);
-        Arr(I) := Arr(J);
-        Arr(J) := Temp;
-    end Swap_Elements;
+        Temp := I;
+        I := J;
+        J := Temp;
+    end Swap;
 
 
     procedure Sort(Arr: out Integer_Array) is
@@ -45,7 +43,7 @@ procedure Bubble_Sort is
             Swapped := False;
             for I in Integer range 1 .. Arr'Length - 1 loop
                 if Arr(I - 1) > Arr(I) then
-                    Swap_Elements(I, I - 1, Arr);
+                    Swap(Arr(I), Arr(I - 1));
                     Swapped := True;
                 end if;
             end loop;
