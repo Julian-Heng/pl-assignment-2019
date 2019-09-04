@@ -91,6 +91,7 @@ void insert(int value)
     new->value = value;
     new->next = NULL;
 
+    // Empty list
     if (! head && ! tail)
     {
         head = new;
@@ -98,20 +99,24 @@ void insert(int value)
     }
     else
     {
+        // Value is smaller than the smallest value in list
         if (value <= head->value)
         {
             new->next = head;
             head = new;
         }
+        // Value is larger than the largest value in list
         else if (value >= tail->value)
         {
             tail->next = new;
             tail = new;
         }
+        // Value has to go somewhere in the list
         else
         {
             next = head;
 
+            // Find a value in the list larger than what we're inserting
             while (next && value >= next->value)
             {
                 prev = next;
