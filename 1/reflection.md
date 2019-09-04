@@ -2,8 +2,6 @@
 toc: true
 geometry: margin=25.4mm
 papersize: a4
-header-includes:
-    \usepackage{listings}
 ...
 
 \newpage
