@@ -33,11 +33,11 @@ int* array;
 %token TOKEN_START TOKEN_NUMBER TOKEN_SEPERATOR TOKEN_END TOKEN_TERMINATE
 
 %%
-program: program list | list;
+program: program list TOKEN_TERMINATE | list TOKEN_TERMINATE;
 
 list:
-    | TOKEN_START TOKEN_END TOKEN_TERMINATE
-    | TOKEN_START number_list TOKEN_END TOKEN_TERMINATE
+    | TOKEN_START TOKEN_END
+    | TOKEN_START number_list TOKEN_END
     {
         process_list();
     };
@@ -45,6 +45,7 @@ list:
 number_list: number | number_list TOKEN_SEPERATOR number;
 number: TOKEN_NUMBER
     {
+        // For every number found, insert to linked list
         num++;
         insert($1);
     };
@@ -55,26 +56,24 @@ void insert(int val)
 {
     struct node* new;
 
-    if ((new = (struct node*)malloc(sizeof(struct node))))
-    {
-        new->val = val;
-        new->next = NULL;
-
-        if (! head)
-        {
-            head = new;
-            current = head;
-        }
-        else
-        {
-            current->next = new;
-            current = new;
-        }
-    }
-    else
+    if (! (new = (struct node*)malloc(sizeof(struct node))))
     {
         fprintf(stderr, "err: Can't malloc node\n");
         exit(1);
+    }
+
+    new->val = val;
+    new->next = NULL;
+
+    if (! head)
+    {
+        head = new;
+        current = head;
+    }
+    else
+    {
+        current->next = new;
+        current = new;
     }
 }
 
@@ -103,36 +102,39 @@ void process_list()
     struct node* cursor;
     int i = 0;
 
-    if ((array = (int*)malloc(num * sizeof(int))))
-    {
-        cursor = head;
-
-        // Convert linked list from tokens to array
-        do
-        {
-            array[i] = cursor->val;
-        } while ((cursor = cursor->next) && ++i < num);
-
-        // Sort and print
-        sort(array, num);
-
-        i = -1;
-        while (++i < num)
-            printf(! i ? "[%d, " : i < num - 1 ? "%d, " : "%d]\n", array[i]);
-    }
-    else
+    if (! (array = (int*)malloc(num * sizeof(int))))
     {
         fprintf(stderr, "err: Can't malloc array\n");
         exit(1);
     }
 
+    cursor = head;
+
+    // Convert linked list to array
+    do
+    {
+        array[i] = cursor->val;
+    } while ((cursor = cursor->next) && ++i < num);
+
+    // Sort and print
+    sort(array, num);
+
+    i = -1;
+
+    // Edge case for single element arrays
+    if (num == 1)
+        printf("[%d]\n", array[0]);
+    else
+        while (++i < num)
+            printf(! i ? "[%d, " : i < num - 1 ? "%d, " : "%d]\n", array[i]);
+
     reset();
 }
 
 
+// Insertion sort
 void sort(int* arr, int length)
 {
-    // Insertion sort
     int temp, i, j;
 
     for (i = 1, j = i; i < length; i++, j = i)
@@ -152,7 +154,7 @@ void swap(int* a, int* b)
 }
 
 
-void yyerror(const char *str) { fprintf(stderr, "err: %s\n", str); }
+void yyerror(const char *str) { fprintf(stderr, "err: %s\n", str); reset(); }
 int yywrap() { return 1; }
 
 
