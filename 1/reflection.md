@@ -2,10 +2,16 @@
 toc: true
 geometry: margin=25.4mm
 papersize: a4
+header-includes:
+    \usepackage{listings}
 ...
 
 \newpage
 # FORTRAN 77 - Week 1
+## Source Code
+\lstinputlisting[language=fortran,style=code]{./1/fizzbuzz.f}
+
+
 ## Reflection
 
 FORTRAN 77, while not the original FORTRAN from the 50s, is somewhat difficult

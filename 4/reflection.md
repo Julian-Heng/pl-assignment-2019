@@ -1,4 +1,13 @@
 # EBNF - Week 4
+## Source Code
+### Lex
+\lstinputlisting[style=code]{./4/list.l}
+
+
+### Yacc
+\lstinputlisting[style=code]{./4/list.y}
+
+
 ## Reflection
 
 

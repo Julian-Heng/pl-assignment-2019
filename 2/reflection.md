@@ -1,4 +1,8 @@
 # Algol68 - Week 2
+## Source Code
+\lstinputlisting[language=algol,style=code]{./2/fizzbuzz.a68}
+
+
 ## Reflection
 
 Algol68 introduces the idea of code blocks, which for some reason makes writing

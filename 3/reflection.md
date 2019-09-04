@@ -1,4 +1,8 @@
 # Ada - Week 3
+## Source Code
+\lstinputlisting[language=ada,style=code]{./3/bubble_sort.adb}
+
+
 ## Reflection
 
 Ada is the first programming language in this course so far that actually feels
