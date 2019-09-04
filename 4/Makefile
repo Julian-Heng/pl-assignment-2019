@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -Wall -pedantic -ansi -ll
+CFLAGS = -g -Wall -pedantic -std=c99 -ll
 
 YACC = yacc
 YFLAGS = -d

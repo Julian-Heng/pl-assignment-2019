@@ -8,5 +8,6 @@
 \[          return TOKEN_START;
 \]          return TOKEN_END;
 ,           return TOKEN_SEPERATOR;
-(\n|[ \t]+)
+\n          return TOKEN_TERMINATE;
+[ \t]+
 %%

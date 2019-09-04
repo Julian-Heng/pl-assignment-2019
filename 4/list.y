@@ -3,17 +3,53 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define FREE(ptr) \
+    free((ptr)); \
+    (ptr) = NULL;
 
-struct node {
+struct node
+{
     int val;
     struct node* next;
 };
 
-struct node* head = NULL;
-struct node* current = NULL;
+int yylex_destroy(void);
 
-int num = 0;
-int* array = NULL;
+void insert(int);
+void reset(void);
+void process_list(void);
+void sort(int*, int);
+void swap(int*, int*);
+
+// Globals
+struct node* head;
+struct node* current;
+
+int num;
+int* array;
+%}
+
+
+%token TOKEN_START TOKEN_NUMBER TOKEN_SEPERATOR TOKEN_END TOKEN_TERMINATE
+
+%%
+program: program list | list;
+
+list:
+    | TOKEN_START TOKEN_END TOKEN_TERMINATE
+    | TOKEN_START number_list TOKEN_END TOKEN_TERMINATE
+    {
+        process_list();
+    };
+
+number_list: number | number_list TOKEN_SEPERATOR number;
+number: TOKEN_NUMBER
+    {
+        num++;
+        insert($1);
+    };
+%%
+
 
 void insert(int val)
 {
@@ -42,103 +78,87 @@ void insert(int val)
     }
 }
 
-void reset_state()
+
+void reset()
 {
     struct node* temp;
 
     num = 0;
     if (array)
-    {
-        free(array);
-        array = NULL;
-    }
+        FREE(array);
 
     if (head)
-    {
         while (head)
         {
             temp = head;
             head = head->next;
 
-            free(temp);
-            temp = NULL;
+            FREE(temp);
         }
+}
+
+
+void process_list()
+{
+    struct node* cursor;
+    int i = 0;
+
+    if ((array = (int*)malloc(num * sizeof(int))))
+    {
+        cursor = head;
+
+        // Convert linked list from tokens to array
+        do
+        {
+            array[i] = cursor->val;
+        } while ((cursor = cursor->next) && ++i < num);
+
+        // Sort and print
+        sort(array, num);
+
+        i = -1;
+        while (++i < num)
+            printf(! i ? "[%d, " : i < num - 1 ? "%d, " : "%d]\n", array[i]);
     }
+    else
+    {
+        fprintf(stderr, "err: Can't malloc array\n");
+        exit(1);
+    }
+
+    reset();
 }
 
 
 void sort(int* arr, int length)
 {
-    int i, j, min, temp;
-    for (i = 0; i < length - 1; i++)
-    {
-        min = i;
-        for (j = i + 1; j < length; j++)
-            min = arr[j] < arr[min] ? j : min;
+    // Insertion sort
+    int temp, i, j;
 
-        temp = arr[min];
-        arr[min] = arr[i];
-        arr[i] = temp;
-    }
+    for (i = 1, j = i; i < length; i++, j = i)
+        while ((j > 0) && (arr[j - 1] > arr[j]))
+        {
+            swap(&arr[j], &arr[j - 1]);
+            j--;
+        }
 }
 
 
-void yyerror(const char *str)
+void swap(int* a, int* b)
 {
-    fprintf(stderr, "err: %s\n", str);
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 
-int yywrap()
-{
-    return 1;
-}
+void yyerror(const char *str) { fprintf(stderr, "err: %s\n", str); }
+int yywrap() { return 1; }
+
 
 int main()
 {
+    reset();
     yyparse();
+    yylex_destroy();
 }
-%}
-
-%token TOKEN_START TOKEN_NUMBER TOKEN_SEPERATOR TOKEN_END
-
-%%
-program: program list | list;
-
-list:
-    | TOKEN_START TOKEN_END
-    | TOKEN_START number_list TOKEN_END
-    {
-        struct node* cursor;
-        int i = 0;
-        if ((array = (int*)malloc(num * sizeof(int))))
-        {
-            cursor = head;
-            while (cursor && i < num)
-            {
-                array[i++] = cursor->val;
-                cursor = cursor->next;
-            }
-
-            sort(array, num);
-            printf("[");
-            for (i = 0; i < num - 1; i++)
-                printf("%d, ", array[i]);
-            printf("%d]\n", array[num - 1]);
-        }
-        else
-        {
-            fprintf(stderr, "err: Can't malloc array\n");
-            exit(1);
-        }
-
-        reset_state();
-    };
-
-number_list: number | number_list TOKEN_SEPERATOR number;
-number: TOKEN_NUMBER
-    {
-        num++;
-        insert($1);
-    };
-%%
