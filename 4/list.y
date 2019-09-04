@@ -37,10 +37,6 @@ program
 
 list
     :
-    | TOKEN_START TOKEN_END
-    {
-        printf("[]\n");
-    }
     | TOKEN_START number_list TOKEN_END
     {
         struct node* cursor = head;
@@ -60,7 +56,8 @@ list
     ;
 
 number_list
-    : number
+    :
+    | number
     | number_list TOKEN_SEPERATOR number
     ;
 
