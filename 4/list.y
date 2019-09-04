@@ -9,7 +9,7 @@
 
 struct node
 {
-    int val;
+    int value;
     struct node* next;
 };
 
@@ -17,16 +17,12 @@ int yylex_destroy(void);
 
 void insert(int);
 void reset(void);
-void process_list(void);
-void sort(int*, int);
-void swap(int*, int*);
 
 // Globals
 struct node* head;
-struct node* current;
+struct node* tail;
 
 int num;
-int* array;
 %}
 
 
@@ -47,7 +43,19 @@ list
     }
     | TOKEN_START number_list TOKEN_END
     {
-        process_list();
+        struct node* cursor = head;
+
+        printf("[");
+        while (cursor)
+        {
+            printf("%d", cursor->value);
+            cursor = cursor->next;
+            if (cursor)
+                printf(", ");
+        }
+        printf("]\n");
+
+        reset();
     }
     ;
 
@@ -67,9 +75,12 @@ number
 %%
 
 
-void insert(int val)
+// Insert values into the sorted list
+void insert(int value)
 {
     struct node* new;
+    struct node* next;
+    struct node* prev;
 
     if (! (new = (struct node*)malloc(sizeof(struct node))))
     {
@@ -77,18 +88,40 @@ void insert(int val)
         exit(1);
     }
 
-    new->val = val;
+    new->value = value;
     new->next = NULL;
 
-    if (! head)
+    if (! head && ! tail)
     {
         head = new;
-        current = head;
+        tail = new;
     }
     else
     {
-        current->next = new;
-        current = new;
+        if (value <= head->value)
+        {
+            new->next = head;
+            head = new;
+        }
+        else if (value >= tail->value)
+        {
+            tail->next = new;
+            tail = new;
+        }
+        else
+        {
+            next = head;
+
+            while (next && value >= next->value)
+            {
+                prev = next;
+                next = next->next;
+            }
+
+            if (prev)
+                prev->next = new;
+            new->next = next;
+        }
     }
 }
 
@@ -98,10 +131,9 @@ void reset()
     struct node* temp;
 
     num = 0;
-    if (array)
-        FREE(array);
-
     if (head)
+    {
+        temp = head;
         while (head)
         {
             temp = head;
@@ -109,63 +141,10 @@ void reset()
 
             FREE(temp);
         }
-}
 
-
-void process_list()
-{
-    struct node* cursor;
-    int i = 0;
-
-    if (! (array = (int*)malloc(num * sizeof(int))))
-    {
-        fprintf(stderr, "err: Can't malloc array\n");
-        exit(1);
+        head = NULL;
+        tail = NULL;
     }
-
-    cursor = head;
-
-    // Convert linked list to array
-    do
-    {
-        array[i] = cursor->val;
-    } while ((cursor = cursor->next) && ++i < num);
-
-    // Sort and print
-    sort(array, num);
-
-    i = -1;
-
-    // Edge case for single element arrays
-    if (num == 1)
-        printf("[%d]\n", array[0]);
-    else
-        while (++i < num)
-            printf(! i ? "[%d, " : i < num - 1 ? "%d, " : "%d]\n", array[i]);
-
-    reset();
-}
-
-
-// Insertion sort
-void sort(int* arr, int length)
-{
-    int temp, i, j;
-
-    for (i = 1, j = i; i < length; i++, j = i)
-        while ((j > 0) && (arr[j - 1] > arr[j]))
-        {
-            swap(&arr[j], &arr[j - 1]);
-            j--;
-        }
-}
-
-
-void swap(int* a, int* b)
-{
-    int temp = *a;
-    *a = *b;
-    *b = temp;
 }
 
 
