@@ -31,24 +31,39 @@ int* array;
 
 
 %token TOKEN_START TOKEN_NUMBER TOKEN_SEPERATOR TOKEN_END TOKEN_TERMINATE
+%start program
 
 %%
-program: program list TOKEN_TERMINATE | list TOKEN_TERMINATE;
+program
+    : program list TOKEN_TERMINATE
+    | list TOKEN_TERMINATE
+    ;
 
-list:
+list
+    :
     | TOKEN_START TOKEN_END
+    {
+        printf("[]\n");
+    }
     | TOKEN_START number_list TOKEN_END
     {
         process_list();
-    };
+    }
+    ;
 
-number_list: number | number_list TOKEN_SEPERATOR number;
-number: TOKEN_NUMBER
+number_list
+    : number
+    | number_list TOKEN_SEPERATOR number
+    ;
+
+number
+    : TOKEN_NUMBER
     {
         // For every number found, insert to linked list
         num++;
         insert($1);
-    };
+    }
+    ;
 %%
 
 
