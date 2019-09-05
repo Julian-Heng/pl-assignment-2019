@@ -8,6 +8,14 @@
 \lstinputlisting[style=code]{./4/list.y}
 
 
+### Tree implementation
+#### tree.c
+\lstinputlisting[style=code]{./4/tree.c}
+
+#### tree.h
+\lstinputlisting[style=code]{./4/tree.h}
+
+
 ## Reflection
 
 Yacc and Lex are very specialised tools that deals mostly with metalanguages,

@@ -6,24 +6,35 @@ YFLAGS = -d
 LC = lex
 
 BUILD = ./build
-SOURCES := $(shell printf "%s\n" ./*.l)
-EXEC = $(SOURCES:%.l=%)
 
-all: $(EXEC)
+list: tree list_lex list_yacc
+	$(CC) $(CFLAGS) -o $(BUILD)/list \
+		$(BUILD)/list.lex.o \
+		$(BUILD)/list.tab.o \
+		$(BUILD)/tree.o
 
-%: %.l
+
+list_lex: dir list_yacc
+	$(LC) -o $(BUILD)/list.lex.c ./list.l
+	$(CC) $(CFLAGS) -c -o $(BUILD)/list.lex.o $(BUILD)/list.lex.c
+
+
+list_yacc: dir
+	$(YACC) $(YFLAGS) -o $(BUILD)/list.tab.c ./list.y
+	$(CC) $(CFLAGS) -c -o $(BUILD)/list.tab.o $(BUILD)/list.tab.c
+
+
+tree: dir
+	$(CC) $(CFLAGS) -c -o $(BUILD)/tree.o tree.c
+
+
+dir:
 	@mkdir -p $(BUILD)
-	$(LC) -o $(BUILD)/$(^:%.l=%).lex.c $^
-	$(YACC) $(YFLAGS) -o $(BUILD)/$(^:%.l=%).tab.c $(^:%.l=%.y)
-	$(CC) -o $(BUILD)/$(^:%.l=%) \
-		$(BUILD)/$(^:%.l=%).lex.c \
-		$(BUILD)/$(^:%.l=%).tab.c \
-		$(CFLAGS)
 
 
 clean:
 	$(RM) -rv $(BUILD)
 
 
-test: all
+test: list
 	@bash test.sh

@@ -3,24 +3,33 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../tree.h"
+
 #define FREE(ptr) \
     free((ptr)); \
     (ptr) = NULL;
 
+/*
 struct node
 {
     int value;
-    struct node* next;
+    struct node* left;
+    struct node* right;
 };
+*/
 
 int yylex_destroy(void);
 
-void insert(int);
+/*
+struct node* insert(struct node*, int);
+struct node* get_last_node(struct node*);
+void print_tree(struct node*);
+void deltree(struct node*);
+*/
 void reset(void);
 
 // Globals
-struct node* head;
-struct node* tail;
+struct node* root;
 
 int num;
 %}
@@ -39,16 +48,8 @@ list
     :
     | TOKEN_START number_list TOKEN_END
     {
-        struct node* cursor = head;
-
         printf("[");
-        while (cursor)
-        {
-            printf("%d", cursor->value);
-            cursor = cursor->next;
-            if (cursor)
-                printf(", ");
-        }
+        print_tree(root, get_last_node(root));
         printf("]\n");
 
         reset();
@@ -64,68 +65,12 @@ number_list
 number
     : TOKEN_NUMBER
     {
-        // For every number found, insert to linked list
+        // For every number found, insert to binary tree
         num++;
-        insert($1);
+        root = insert(root, $1);
     }
     ;
 %%
-
-
-// Insert values into the sorted list
-void insert(int value)
-{
-    struct node* new;
-    struct node* next;
-    struct node* prev;
-
-    if (! (new = (struct node*)malloc(sizeof(struct node))))
-    {
-        fprintf(stderr, "err: Can't malloc node\n");
-        exit(1);
-    }
-
-    new->value = value;
-    new->next = NULL;
-
-    // Empty list
-    if (! head && ! tail)
-    {
-        head = new;
-        tail = new;
-    }
-    else
-    {
-        // Value is smaller than the smallest value in list
-        if (value <= head->value)
-        {
-            new->next = head;
-            head = new;
-        }
-        // Value is larger than the largest value in list
-        else if (value >= tail->value)
-        {
-            tail->next = new;
-            tail = new;
-        }
-        // Value has to go somewhere in the list
-        else
-        {
-            next = head;
-
-            // Find a value in the list larger than what we're inserting
-            while (next && value >= next->value)
-            {
-                prev = next;
-                next = next->next;
-            }
-
-            if (prev)
-                prev->next = new;
-            new->next = next;
-        }
-    }
-}
 
 
 void reset()
@@ -133,20 +78,9 @@ void reset()
     struct node* temp;
 
     num = 0;
-    if (head)
-    {
-        temp = head;
-        while (head)
-        {
-            temp = head;
-            head = head->next;
-
-            FREE(temp);
-        }
-
-        head = NULL;
-        tail = NULL;
-    }
+    if (root)
+        deltree(root);
+    root = NULL;
 }
 
 
