@@ -9,7 +9,6 @@
     free((ptr)); \
     (ptr) = NULL;
 
-void yyerror(const char*);
 int yylex_destroy(void);
 void reset(void);
 
