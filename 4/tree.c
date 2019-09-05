@@ -61,5 +61,3 @@ void deltree(struct node* node)
             FREE(node);
     }
 }
-
-
