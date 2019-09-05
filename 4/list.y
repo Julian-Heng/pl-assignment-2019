@@ -9,28 +9,12 @@
     free((ptr)); \
     (ptr) = NULL;
 
-/*
-struct node
-{
-    int value;
-    struct node* left;
-    struct node* right;
-};
-*/
-
+void yyerror(const char*);
 int yylex_destroy(void);
-
-/*
-struct node* insert(struct node*, int);
-struct node* get_last_node(struct node*);
-void print_tree(struct node*);
-void deltree(struct node*);
-*/
 void reset(void);
 
 // Globals
 struct node* root;
-
 int num;
 %}
 
@@ -84,7 +68,7 @@ void reset()
 }
 
 
-void yyerror(const char *str) { fprintf(stderr, "err: %s\n", str); reset(); }
+void yyerror(const char* str) { fprintf(stderr, "err: %s\n", str); reset(); }
 int yywrap() { return 1; }
 
 
