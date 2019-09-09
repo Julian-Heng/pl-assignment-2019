@@ -2,23 +2,21 @@
 
 sub find_conf
 {
-    for my $element (@_)
+    for my $node (<"$_[0]/"*>)
     {
-        for my $node (<"$element/"*[!home]>)
+        if (not $node =~ "^/home")
         {
-            if (not -l $node)
+            if ($node =~ /\.conf$/)
             {
-                if (-d $node)
-                {
-                    find_conf($node);
-                }
-                elsif (-f $node and $node =~ /\.conf$/)
-                {
-                    print "$node\n";
-                }
+                print "$node\n";
+            }
+
+            if (not -l $node and -d $node)
+            {
+                find_conf($node);
             }
         }
     }
 }
 
-find_conf(<"/"*[!home]>);
+find_conf();
