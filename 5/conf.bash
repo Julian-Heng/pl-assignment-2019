@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
 shopt -s globstar
-for i in /*[!home]/**/*.conf; do [[ -f "$i" ]] && printf "%s\\n" "$i"; done
+
+# We don't include /home so that it wouldn't take forever
+# Alternative: printf "%s\\n" /**/*.conf
+printf "%s\\n" /*[!home]/**/*.conf
