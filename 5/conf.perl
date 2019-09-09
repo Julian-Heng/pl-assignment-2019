@@ -11,7 +11,7 @@ sub find_conf
         {
             if ($node =~ /\.conf$/)
             {
-                print "$node\n";
+                print("$node\n");
             }
 
             if (not -l $node and -d $node)
