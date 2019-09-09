@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 # No way to glob recursively
-# Guess we're gonna have to do it the old way
+# Guess we're gonna have to do it the old fashioned way
 sub find_conf
 {
     for my $node (<"$_[0]/"*>)
