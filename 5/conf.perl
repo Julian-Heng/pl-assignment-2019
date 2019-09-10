@@ -6,20 +6,8 @@ sub find_conf
 {
     for my $node (<"$_[0]/"*>)
     {
-        # Exclude home dir
-        if (not $node =~ "^/home")
-        {
-            if ($node =~ /\.conf$/)
-            {
-                print("$node\n");
-            }
-
-            if (not -l $node and -d $node)
-            {
-                # Recurse every directory
-                find_conf($node);
-            }
-        }
+        if ($node =~ /\.conf$/) { print("$node\n"); }
+        if (not -l $node and -d $node) { find_conf($node); }
     }
 }
 

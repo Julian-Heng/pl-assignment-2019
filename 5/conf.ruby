@@ -1,4 +1,2 @@
 #!/usr/bin/env ruby
-
-# See conf.bash
-puts Dir["/*[!home]/**/*.conf"]
+puts Dir["/**/*.conf"]
