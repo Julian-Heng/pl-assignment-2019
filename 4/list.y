@@ -5,10 +5,6 @@
 
 #include "../tree.h"
 
-#define FREE(ptr) \
-    free((ptr)); \
-    (ptr) = NULL;
-
 int yylex_destroy(void);
 void reset(void);
 
@@ -58,8 +54,6 @@ number
 
 void reset()
 {
-    struct node* temp;
-
     num = 0;
     if (root)
         deltree(root);

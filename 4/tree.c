@@ -3,10 +3,6 @@
 
 #include "tree.h"
 
-#define FREE(ptr) \
-    free((ptr)); \
-    (ptr) = NULL;
-
 
 struct node* insert(struct node* node, int value)
 {
@@ -57,7 +53,6 @@ void deltree(struct node* node)
     {
         deltree(node->left);
         deltree(node->right);
-        if (node)
-            FREE(node);
+        free(node);
     }
 }

@@ -7,6 +7,7 @@ LC = lex
 
 BUILD = ./build
 
+
 list: tree list_lex list_yacc
 	$(CC) $(CFLAGS) -o $(BUILD)/list \
 		$(BUILD)/list.lex.o \
