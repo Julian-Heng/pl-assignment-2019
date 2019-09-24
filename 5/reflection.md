@@ -99,3 +99,5 @@ subroutines/functions, string manipulation, etc). But the more I wrote my
 program in Perl, the more it's lack of syntax uniformity and regularity put me
 off completely. The added complexity pasted onto of Perl, presented as multiple
 options, is not something I desire in a programming language.
+
+\newpage
