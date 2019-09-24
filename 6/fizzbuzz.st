@@ -1,9 +1,7 @@
 #!/usr/bin/env gst
 
-
 Object subclass: Fizzbuzz [
-    | start |
-    | end |
+    | start end |
 
     init [
         self setStart: 1.
@@ -12,38 +10,22 @@ Object subclass: Fizzbuzz [
 
     main [
         self getStart to: self getEnd do: [ :i |
-            self printFizz: i.
-            self printBuzz: i.
-            self printNormal: i.
+            (self isFizz:   i) ifTrue: [ Transcript show: 'Fizz' ].
+            (self isBuzz:   i) ifTrue: [ Transcript show: 'Buzz' ].
+            (self isNormal: i) ifTrue: [ Transcript show: i printString ].
             Transcript cr.
-        ]
+        ].
     ]
 
-    printFizz: num [
-        ((num \\ 3) == 0)
-            ifTrue: [ Transcript show: 'Fizz' ]
-    ]
+    isFizz:   i [ ^((i \\ 3) == 0). ]
+    isBuzz:   i [ ^((i \\ 5) == 0). ]
+    isNormal: i [ ^((self isFizz: i) | (self isBuzz: i)) not. ]
 
-    printBuzz: num [
-        ((num \\ 5) == 0)
-            ifTrue: [ Transcript show: 'Buzz' ]
-    ]
-
-    printNormal: num [
-        ((num \\ 3) == 0) | ((num \\ 5) == 0)
-            ifFalse: [ Transcript show: num printString ]
-    ]
-
-    setStart: newStart [ start := newStart ]
-    setEnd: newEnd [ end := newEnd ]
-    getStart [ ^start ]
-    getEnd [ ^end ]
+    setStart: newStart [ start := newStart. ]
+    setEnd: newEnd [ end := newEnd. ]
+    getStart [ ^start. ]
+    getEnd [ ^end. ]
 ]
 
-
-Fizzbuzz class extend [
-    new [ ^((super new) init) ]
-]
-
-fb := Fizzbuzz new.
+fb := (Fizzbuzz new) init.
 fb main.
