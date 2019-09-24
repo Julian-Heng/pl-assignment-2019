@@ -18,25 +18,25 @@ because it would remove the need, at least in my case, for using pointers. For
 example, swaping values within 2 variables in C as a function call looks like
 this:
 
-```c
+\begin{lstlisting}[language=c,style=codenonum]
 void swap(int* a, int*b)
 {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
-```
+\end{lstlisting}
 
 In Ada its:
 
-```ada
+\begin{lstlisting}[language=ada,style=codenonum]
 procedure Swap(I, J: in out Integer) is
     Temp : Integer := I;
 begin
     I := J;
     J := Temp;
 end Swap;
-```
+\end{lstlisting}
 
 No pointers necessary. This alone makes Ada a lot more readable, writeable as
 well as more reliable than C. Unfortunately, the only other language that seems
@@ -75,7 +75,8 @@ have written one, if not, there are plenty on the internet you can look at).
 What similarities and differences are there?
 
 In C:
-```c
+
+\begin{lstlisting}[language=c,style=codenonum]
 void sort(int* arr, int size)
 {
     int swapped;
@@ -95,10 +96,11 @@ void sort(int* arr, int size)
         }
     } while (swapped)
 }
-```
+\end{lstlisting}
 
 In Ada:
-```ada
+
+\begin{lstlisting}[language=ada,style=codenonum]
 procedure Sort(Arr: out Integer_Array) is
     Swapped : Boolean;
 begin
@@ -113,7 +115,7 @@ begin
         exit when not Swapped;
     end loop;
 end
-```
+\end{lstlisting}
 
 Similarities:
 

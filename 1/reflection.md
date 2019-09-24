@@ -1,8 +1,12 @@
 ---
+title: Programming Languages Assignment
+author: Julian Heng (19473701)
+date: \today
 toc: true
 geometry: margin=25.4mm
 papersize: a4
 ...
+
 
 \newpage
 # FORTRAN 77 - Week 1

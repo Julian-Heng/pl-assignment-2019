@@ -15,10 +15,6 @@
 ## Reflection
 ### BASH
 
-Bash is the first language I've learned. I've had about 2 years experience
-writing shell scripts that I know that I can do any programming problem just in
-Bash. I also know when that problem is not suitable for Bash.
-
 Bash is very orthogonal. String addition can be done using `printf -v
 var_name`, or using `var_name="${str1} Another string ${str2}"`. No integer
 data types, all numbers are represented as strings, and Bash can only handle
@@ -26,7 +22,9 @@ integer arithmetics using `$(())` in addition to float or integer arithmetics
 using external tools using `bc` or `dc`. Bash natively supports regex (`[[
 "${str}" =~ ${regex} ]]`) as well as using standard UNIX programs like `grep`
 and `awk` to do regex. Thus this can reduce Bash's simplicity and thus makes
-shell script harder to read and maintain.
+shell script harder to read and maintain. However, making it a very much
+orthorgonal langauge considering that any program that takes in input and
+outputs to stdout can extend Bash.
 
 All variables declared in a function scope within Bash is global by default,
 unless `local` builtin is specified. By default, that would reduce readability
@@ -46,14 +44,14 @@ reliability of the script. It is important to note however that it will catch
 `[[ condition ]]` syntax errors but not `[ condition ]` because the former is
 shell syntax whereas the later is a command or builtin.
 
-```
+\begin{lstlisting}[style=common]
 $ which [
 /usr/bin/[
 $ type [
 [ is a shell builtin
 $ type [[
 [[ is a shell keyword
-```
+\end{lstlisting}
 
 
 ### Perl
@@ -86,7 +84,9 @@ Ruby and my Ruby program is literally one line long, it's not easy to write
 about a language I have almost next to no experience with.
 
 Ruby overally feels like an improvement of Perl. It does not take in any ideas
-from shell which does not apply well for large scale projects.
+from shell which does not apply well for large scale projects. It follow's
+Python's example of omitting braces and relying on indentation, which improves
+writability.
 
 
 ## Weekly Question

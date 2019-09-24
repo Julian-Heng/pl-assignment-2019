@@ -33,7 +33,8 @@ Since the syntax is so incredibly simple, there's not really a lot to say about
 the language's deviation from the programming principles, though there are
 some. Yacc does not enforce semicolon at the end of the rules. So rules like
 this can be accepted:
-```yacc
+
+\begin{lstlisting}[style=common]
 A:
  | B
  | C
@@ -41,7 +42,7 @@ A:
 
 C: TOKEN
 B: ANOTHER_TOKEN | SOME_OTHER_TOKEN;
-```
+\end{lstlisting}
 
 Thus, this violates regularity in the language.
 
