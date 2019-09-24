@@ -9,22 +9,23 @@ Object subclass: Fizzbuzz [
     ]
 
     main [
-        self getStart to: self getEnd do: [ :i |
-            (self isFizz:   i) ifTrue: [ Transcript show: 'Fizz' ].
-            (self isBuzz:   i) ifTrue: [ Transcript show: 'Buzz' ].
-            (self isNormal: i) ifTrue: [ Transcript show: i printString ].
+        self getStart to: self getEnd do: [:i|
+            (self isFizz:   i) ifTrue: [Transcript show: 'Fizz'].
+            (self isBuzz:   i) ifTrue: [Transcript show: 'Buzz'].
+            (self isNormal: i) ifTrue: [Transcript show: i printString].
             Transcript cr.
         ].
     ]
 
-    isFizz:   i [ ^((i \\ 3) == 0). ]
-    isBuzz:   i [ ^((i \\ 5) == 0). ]
-    isNormal: i [ ^((self isFizz: i) | (self isBuzz: i)) not. ]
+    isFizz:   i [^((i \\ 3) == 0).]
+    isBuzz:   i [^((i \\ 5) == 0).]
+    isNormal: i [^((self isFizz: i) | (self isBuzz: i)) not.]
 
-    setStart: newStart [ start := newStart. ]
-    setEnd: newEnd [ end := newEnd. ]
-    getStart [ ^start. ]
-    getEnd [ ^end. ]
+    setStart: newStart [start := newStart.]
+    setEnd: newEnd [end := newEnd.]
+
+    getStart [^start.]
+    getEnd [^end.]
 ]
 
 fb := (Fizzbuzz new) init.
