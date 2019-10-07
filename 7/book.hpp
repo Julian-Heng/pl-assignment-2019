@@ -1,20 +1,23 @@
 #pragma once
+#include <string>
 
 class Book
 {
     private:
-        int bookID;
-        std::string bookName;
-        std::string bookISBN;
+        friend std::ostream& operator<<(std::ostream&, const Book&);
+
+        int ID;
+        std::string name;
+        std::string ISBN;
 
     public:
-        int getBookID();
-        std::string getBookName();
-        std::string getBookISBN();
+        int getID() const;
+        std::string getName() const;
+        std::string getISBN() const;
 
-        void setBookID(int);
-        void setBookName(std::string);
-        void setBookISBN(std::string);
+        void setID(int);
+        void setName(std::string);
+        void setISBN(std::string);
 
         Book();
         ~Book();

@@ -1,20 +1,31 @@
+#include <iostream>
 #include <string>
+
 #include "book.hpp"
+
 
 Book::Book()
 {
-    setBookID(-1);
-    setBookName("");
-    setBookISBN("");
+    setID(-1);
+    setName("");
+    setISBN("");
 }
 
 Book::~Book() {}
 
 
-int Book::getBookID() { return bookID; }
-std::string Book::getBookName() { return bookName; }
-std::string Book::getBookISBN() { return bookISBN; }
+int Book::getID() const { return ID; }
+std::string Book::getName() const { return name; }
+std::string Book::getISBN() const { return ISBN; }
 
-void Book::setBookID(int bookID) { this->bookID = bookID; }
-void Book::setBookName(std::string bookName) { this->bookName = bookName; }
-void Book::setBookISBN(std::string bookISBN) { this->bookISBN = bookISBN; }
+void Book::setID(int ID) { this->ID = ID; }
+void Book::setName(std::string name) { this->name = name; }
+void Book::setISBN(std::string ISBN) { this->ISBN = ISBN; }
+
+std::ostream& operator<<(std::ostream& stream, const Book& book)
+{
+    return stream << "Book(" <<
+        "ID: " << book.getID() << ", " <<
+        "Name: " << book.getName() << ", " <<
+        "ISBN: " << book.getISBN() << ")";
+}
