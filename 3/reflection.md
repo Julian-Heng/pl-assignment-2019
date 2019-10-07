@@ -3,6 +3,17 @@
 \lstinputlisting[language=ada,style=code]{./3/bubble_sort.adb}
 
 
+## Program Output
+### Command Line
+\lstinputlisting[language={},style=codenonum]{./3/cmdline}
+
+
+## Output
+\begin{multicols}{2}
+\lstinputlisting[language={},style=codenonum]{./3/output}
+\end{multicols}
+
+
 ## Reflection
 
 Ada is the first programming language in this course so far that actually feels
@@ -42,8 +53,8 @@ No pointers necessary. This alone makes Ada a lot more readable, writeable as
 well as more reliable than C. Unfortunately, the only other language that seems
 to have this feature is C#.
 
-Ada is object orientated, kinda. A version of Ada in 1995 was made to make it
-an object orientated. The syntax for accessing an object's methods is
+Ada is object orientated. A version of Ada in 1995 was made to make it an
+object orientated. The syntax for accessing an object's methods is
 `Object'Method()` which not the same for other's languages `Object.method()`.
 This may be seens as decrease in readability and writability as it does not
 conform to other languages, however, it can be argued that it's just the syntax

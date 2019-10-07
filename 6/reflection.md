@@ -3,21 +3,27 @@
 \lstinputlisting[style=code]{./6/fizzbuzz.st}
 
 
+## Program Output
+\begin{multicols}{5}
+\lstinputlisting[language={},style=codenonum]{./6/output}
+\end{multicols}
+
+
 ## Reflection
 
-Smalltalk has the same problem as Algol in that it does not enforce `.`,
+Smalltalk has the same problem as Algol in that it does not enforce '`.`',
 the statement terminator, at the end of the last statement in the last
 block. Thus, this would result in Smalltalk violating the regularity
 principle.
 
 Smalltalk is a very simple language, with only having exactly 6 keywords:
 
-  1. true
-  2. false
-  3. nil
-  4. self
-  5. super
-  6. thisContext
+  1. `true`
+  2. `false`
+  3. `nil`
+  4. `self`
+  5. `super`
+  6. `thisContext`
 
 Thus Smalltalk is in compliment with the simplicity principle.
 
@@ -32,11 +38,11 @@ program is difficult, because it does not share much in common with other
 ubiquitous programming languages, like C, or other object orientated
 programming languages, like Java, Ruby, or Python.
 
-Smalltalk does have, to my knowledge, have 2 statement terminators. Both `.`
-and `!` ends a statement. It is actually incredibly hard to find the difference
-between the two, but most example uses `.` and `!` seems to work in specific
-context. As such, I would argue that it violates the syntatic consistency
-principle. Thus it can affect readability and writability.
+Smalltalk does have, to my knowledge, have 2 statement terminators. Both '`.`'
+and '`!`' ends a statement. It is actually incredibly hard to find the
+difference between the two, but most example uses '`.`' and '`!`' seems to work
+in specific context. As such, I would argue that it violates the syntatic
+consistency principle. Thus it can affect readability and writability.
 
 
 ## Weekly Question
@@ -52,6 +58,6 @@ true if divisible by 3, likewise for `isBuzz`. The method `isNormal` calls
 these methods to determine if it is not divisible by 3 and 5. As for
 writability, because of Smalltalk's quirky syntax, it made it quite fun to
 write in, this I would say it is much more writable in comparison to Algol and
-Fortran as those languages are very samey in comparison.
+Fortran as those languages are very similar in comparison.
 
 \newpage

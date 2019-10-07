@@ -14,6 +14,12 @@ papersize: a4
 \lstinputlisting[language=fortran,style=code]{./1/fizzbuzz.f}
 
 
+## Program Output
+\begin{multicols}{5}
+\lstinputlisting[language={},style=codenonum]{./1/output}
+\end{multicols}
+
+
 ## Reflection
 
 FORTRAN 77, while not the original FORTRAN from the 50s, is somewhat difficult

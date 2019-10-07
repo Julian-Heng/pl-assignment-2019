@@ -3,6 +3,12 @@
 \lstinputlisting[language=algol,style=code]{./2/fizzbuzz.a68}
 
 
+## Program Output
+\begin{multicols}{5}
+\lstinputlisting[language={},style=codenonum]{./2/output}
+\end{multicols}
+
+
 ## Reflection
 
 Algol68 introduces the idea of code blocks, which for some reason makes writing

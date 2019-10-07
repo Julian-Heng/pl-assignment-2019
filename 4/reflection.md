@@ -9,11 +9,17 @@
 
 
 ### Tree implementation
-#### tree.c
 \lstinputlisting[style=code]{./4/tree.c}
-
-#### tree.h
 \lstinputlisting[style=code]{./4/tree.h}
+
+
+## Program Output
+### Command Line
+\lstinputlisting[language={},style=codenonum]{./4/cmdline}
+
+
+### Output
+\lstinputlisting[language={},style=codenonum]{./4/output}
 
 
 ## Reflection
