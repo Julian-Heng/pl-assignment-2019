@@ -69,7 +69,7 @@ not wrapped at all. Since both auxiliary functions and declarations get
 inserted in the generated C code, it would make for sense to have both be
 delimited by the same identifier. Thus, this violates regularity.
 
-On the readability on Yacc, it would have the same readability as C, so it
+On the readability of Yacc, it would have the same readability as C, so it
 depends on the programmer that has written it. Since rules are very simple,
 they have high readability. Writability for the rules however may result in
 trial and error as you are essentially creating new language grammar.
