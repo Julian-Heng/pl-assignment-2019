@@ -19,7 +19,9 @@ int main(int argc, char** argv)
     {
         sorter->setBooks(parseBooks());
         sorter->sort();
-        sorter->printBooks();
+        for (Book b : sorter->getBooks())
+            std::cout << b << std::endl;
+
         delete sorter;
     }
 
@@ -31,51 +33,38 @@ BookSorter* setup(int argc, char** argv)
 {
     BookSorter* sorter = NULL;
     std::string str;
-    bool exit = false;
+    int choice = 0;
 
     for (int i = 1; i < argc; i++)
     {
         str = argv[i];
-
-        if (STRCMP(str, "id") || STRCMP(str, "-i"))
-        {
-            if (sorter)
-                delete sorter;
-
-            sorter = new BookSortByID;
-        }
+        if (STRCMP(str, "--help") || STRCMP(str, "-h"))
+            choice = -1;
+        else if (STRCMP(str, "--id") || STRCMP(str, "-i"))
+            choice = 0;
         else if (STRCMP(str, "--name") || STRCMP(str, "-n"))
-        {
-            if (sorter)
-                delete sorter;
-
-            sorter = new BookSortByName;
-        }
+            choice = 1;
         else if (STRCMP(str, "--isbn") || STRCMP(str, "-b"))
-        {
-            if (sorter)
-                delete sorter;
+            choice = 2;
+    }
 
-            sorter = new BookSortByISBN;
-        }
-        else if (STRCMP(str, "--help") || STRCMP(str, "-h"))
-        {
-            if (sorter)
-            {
-                delete sorter;
-                sorter = NULL;
-            }
-
-            exit = true;
+    switch (choice)
+    {
+        case -1:
             std::cerr <<
                 "Usage: " << argv[0] << " option\n" <<
                 "  --id, -i    Sort by ID [default]\n" <<
                 "  --name, -n  Sort by Name\n" <<
                 "  --isbn, -b  Sort by ISBN" << std::endl;
-        }
+            break;
+
+        default:
+        case 0: sorter = new BookSortByID; break;
+        case 1: sorter = new BookSortByName; break;
+        case 2: sorter = new BookSortByISBN; break;
     }
 
-    return sorter == NULL && ! exit ? new BookSortByID : sorter;
+    return sorter;
 }
 
 

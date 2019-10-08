@@ -11,13 +11,12 @@ class BookSorter
         int partition(int, int);
 
     public:
+        BookSorter();
+        virtual ~BookSorter();
+
         std::vector<Book> getBooks();
         void setBooks(std::vector<Book>);
 
-        void printBooks();
         void sort();
         virtual int compare(Book, Book) = 0;
-
-        BookSorter();
-        virtual ~BookSorter() = 0;
 };

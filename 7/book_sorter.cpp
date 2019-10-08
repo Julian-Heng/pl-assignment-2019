@@ -6,17 +6,8 @@
 
 BookSorter::BookSorter() {}
 BookSorter::~BookSorter() {}
-
-
 std::vector<Book> BookSorter::getBooks() { return books; }
 void BookSorter::setBooks(std::vector<Book> books) { this->books = books; }
-
-
-void BookSorter::printBooks()
-{
-    for (Book b : books)
-        std::cout << b << std::endl;
-}
 
 
 void BookSorter::sort()
@@ -42,10 +33,10 @@ void BookSorter::qsort(int low, int high)
 int BookSorter::partition(int low, int high)
 {
     Book pivot = books[high];
-    int i;
+    int i, j;
 
-    for (int j = (i = low); j < high; j++)
-        if (compare(books[j], pivot) == -1)
+    for (j = i = low; j < high; j++)
+        if (compare(books[j], pivot) <= 0)
             std::swap(books[i++], books[j]);
 
     std::swap(books[i], books[high]);

@@ -1,4 +1,5 @@
 #pragma once
+
 #include <string>
 
 class Book
@@ -11,6 +12,9 @@ class Book
         std::string ISBN;
 
     public:
+        Book();
+        ~Book();
+
         int getID() const;
         std::string getName() const;
         std::string getISBN() const;
@@ -18,7 +22,4 @@ class Book
         void setID(int);
         void setName(std::string);
         void setISBN(std::string);
-
-        Book();
-        ~Book();
 };

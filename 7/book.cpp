@@ -22,10 +22,11 @@ void Book::setID(int ID) { this->ID = ID; }
 void Book::setName(std::string name) { this->name = name; }
 void Book::setISBN(std::string ISBN) { this->ISBN = ISBN; }
 
-std::ostream& operator<<(std::ostream& stream, const Book& book)
+std::ostream& operator<<(std::ostream& strm, const Book& b)
 {
-    return stream << "Book(" <<
-        "ID: " << book.getID() << ", " <<
-        "Name: " << book.getName() << ", " <<
-        "ISBN: " << book.getISBN() << ")";
+    return strm <<
+        "Book(" <<
+        "ID: " << b.getID() << ", " <<
+        "Name: " << b.getName() << ", " <<
+        "ISBN: " << b.getISBN() << ")";
 }
