@@ -68,7 +68,7 @@ BookSorter* setup(int argc, char** argv)
 }
 
 
-std::vector<Book> parseBooks(void)
+std::vector<Book> parseBooks()
 {
     Book newBook;
     std::vector<Book> books;
