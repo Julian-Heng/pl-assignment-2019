@@ -21,21 +21,3 @@ class BookSorter
         BookSorter();
         virtual ~BookSorter() = 0;
 };
-
-
-class BookSortByID: public BookSorter
-{
-    public: int compare(Book, Book);
-};
-
-
-class BookSortByName: public BookSorter
-{
-    public: int compare(Book, Book);
-};
-
-
-class BookSortByISBN: public BookSorter
-{
-    public: int compare(Book, Book);
-};

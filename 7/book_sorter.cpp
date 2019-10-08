@@ -51,27 +51,3 @@ int BookSorter::partition(int low, int high)
     std::swap(books[i], books[high]);
     return i;
 }
-
-
-int BookSortByID::compare(Book b1, Book b2)
-{
-    int a = b1.getID();
-    int b = b2.getID();
-    return a < b ? -1 : a == b ? 0 : 1;
-}
-
-
-int BookSortByName::compare(Book b1, Book b2)
-{
-    std::string a = b1.getName();
-    std::string b = b2.getName();
-    return a < b ? -1 : a == b ? 0 : 1;
-}
-
-
-int BookSortByISBN::compare(Book b1, Book b2)
-{
-    unsigned long a = std::stol(b1.getISBN());
-    unsigned long b = std::stol(b2.getISBN());
-    return a < b ? -1 : a == b ? 0 : 1;
-}
