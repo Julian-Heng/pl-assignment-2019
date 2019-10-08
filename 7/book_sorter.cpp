@@ -28,9 +28,11 @@ void BookSorter::sort()
 
 void BookSorter::qsort(int low, int high)
 {
+    int part;
+
     if (low < high)
     {
-        int part = partition(low, high);
+        part = partition(low, high);
         qsort(low, part - 1);
         qsort(part, high);
     }

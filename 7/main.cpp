@@ -5,9 +5,13 @@
 #include "book.hpp"
 #include "book_sorter.hpp"
 
+#define STRCMP(s1, s2) \
+    ! (s1).compare((s2))
+
 
 BookSorter* setup(int, char**);
 std::vector<Book> parseBooks(void);
+
 
 int main(int argc, char** argv)
 {
@@ -31,21 +35,35 @@ int main(int argc, char** argv)
 BookSorter* setup(int argc, char** argv)
 {
     BookSorter* sorter = NULL;
-    std::vector<std::string> args;
+    std::string str;
     bool exit = false;
 
     for (int i = 1; i < argc; i++)
-        args.push_back(argv[i]);
-
-    for (std::string i : args)
     {
-        if (! i.compare("--id") || ! i.compare("-i"))
+        str = argv[i];
+
+        if (STRCMP(str, "id") || STRCMP(str, "-i"))
+        {
+            if (sorter)
+                delete sorter;
+
             sorter = new BookSortByID;
-        else if (! i.compare("--name") || ! i.compare("-n"))
+        }
+        else if (STRCMP(str, "--name") || STRCMP(str, "-n"))
+        {
+            if (sorter)
+                delete sorter;
+
             sorter = new BookSortByName;
-        else if (! i.compare("--isbn") || ! i.compare("-b"))
+        }
+        else if (STRCMP(str, "--isbn") || STRCMP(str, "-b"))
+        {
+            if (sorter)
+                delete sorter;
+
             sorter = new BookSortByISBN;
-        else if (! i.compare("--help") || ! i.compare("-h"))
+        }
+        else if (STRCMP(str, "--help") || STRCMP(str, "-h"))
         {
             if (sorter)
             {
