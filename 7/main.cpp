@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 
 BookSorter* setup(int argc, char** argv)
 {
-    BookSorter* sorter = NULL;
+    BookSorter* sorter = nullptr;
     std::string str;
     int choice = 0;
 
@@ -74,7 +74,7 @@ std::vector<Book> parseBooks()
     std::vector<Book> books;
     std::string in;
 
-    std::regex reg ("^(\\d+),([^,]*),([^,]*)$");
+    std::regex reg ("^(\\d+),(.*),([^,]*)$");
     std::smatch match;
 
     while (std::getline(std::cin, in))
