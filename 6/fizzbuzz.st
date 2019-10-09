@@ -19,7 +19,7 @@ Object subclass: Fizzbuzz [
 
     isFizz:   i [^((i \\ 3) == 0).]
     isBuzz:   i [^((i \\ 5) == 0).]
-    isNormal: i [^((self isFizz: i) | (self isBuzz: i)) not.]
+    isNormal: i [^(self isFizz: i) not & (self isBuzz: i) not.]
 
     setStart: newStart [start := newStart.]
     setEnd: newEnd [end := newEnd.]
