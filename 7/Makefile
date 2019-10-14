@@ -9,4 +9,4 @@ $(EXEC): $(OBJ)
 	$(CXX) -o ./build/$@ $^
 
 clean:
-	$(RM) -v $(OBJ) ./build/$(EXEC)
+	$(RM) -rv $(OBJ) ./build
