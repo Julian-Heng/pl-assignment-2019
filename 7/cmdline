@@ -1,1 +1,1 @@
-./sort_books < input
+./build/sort_books < input

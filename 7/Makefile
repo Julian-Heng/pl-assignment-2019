@@ -5,7 +5,8 @@ OBJ = $(SRC:.cpp=.o)
 EXEC = sort_books
 
 $(EXEC): $(OBJ)
-	$(CXX) -o $@ $^
+	@mkdir -p ./build
+	$(CXX) -o ./build/$@ $^
 
 clean:
-	$(RM) -v $(OBJ) $(EXEC)
+	$(RM) -v $(OBJ) ./build/$(EXEC)

@@ -1,27 +1,27 @@
 # C++ - Week 7
 ## Source Code
-### main.hpp
-\lstinputlisting[language=c++,style=code]{./7/main.hpp}
-
-
 ### main.cpp
 \lstinputlisting[language=c++,style=code]{./7/main.cpp}
 
 
-### book_sorter.hpp
-\lstinputlisting[language=c++,style=code]{./7/book_sorter.hpp}
+### main.hpp
+\lstinputlisting[language=c++,style=code]{./7/main.hpp}
 
 
 ### book_sorter.cpp
 \lstinputlisting[language=c++,style=code]{./7/book_sorter.cpp}
 
 
-### book.hpp
-\lstinputlisting[language=c++,style=code]{./7/book.hpp}
+### book_sorter.hpp
+\lstinputlisting[language=c++,style=code]{./7/book_sorter.hpp}
 
 
 ### book.cpp
 \lstinputlisting[language=c++,style=code]{./7/book.cpp}
+
+
+### book.hpp
+\lstinputlisting[language=c++,style=code]{./7/book.hpp}
 
 
 ## Program Output
@@ -80,3 +80,5 @@ C++, with it's inclusion of pointers, memory management, possible error prone
 code for higher performance and a much lower memory footprint. Or is the ease
 of writing in Java, in comparison to C++, more beneficial for rapid
 development".
+
+\newpage
