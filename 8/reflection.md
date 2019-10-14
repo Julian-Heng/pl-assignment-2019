@@ -1,4 +1,4 @@
-# Prolog - Week 7
+# Prolog - Week 8
 ## Source Code
 \lstinputlisting[language=prolog,style=code]{./8/fizzbuzz.pro}
 
