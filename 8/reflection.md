@@ -19,4 +19,4 @@
 
 ## Weekly Question
 
-Was fizz buzz easier or harder to implement in Prolog? Why or why not?
+Was FizzBuzz easier or harder to implement in Prolog? Why or why not?
