@@ -41,18 +41,18 @@ programming languages, like Java, Ruby, or Python.
 Smalltalk does have, to my knowledge, have 2 statement terminators. Both '`.`'
 and '`!`' ends a statement. It is actually incredibly hard to find the
 difference between the two, but most example uses '`.`' and '`!`' seems to work
-in specific context. As such, I would argue that it violates the syntatic
+in specific context. As such, I would argue that it violates the syntactic
 consistency principle. Thus it can affect readability and writability.
 
 
 ## Weekly Question
 
 How does your implementation of fizz buzz here compare with the implementations
-you wrote in Fortran and Algol in terms of readability and writeability?
+you wrote in Fortran and Algol in terms of readability and writability?
 
-My implementation of fizzbuzz in Smalltalk is an object orientation form, i.e.
+My implementation of FizzBuzz in Smalltalk is an object orientation form, i.e.
 has setters, getters, constructors and methods that do a specific task. I
-believe this is much more readable that the fizzbuzz for Fortran or Algol
+believe this is much more readable that the FizzBuzz for Fortran or Algol
 because of the modularity I have imposed. For example, method `isFizz` returns
 true if divisible by 3, likewise for `isBuzz`. The method `isNormal` calls
 these methods to determine if it is not divisible by 3 and 5. As for

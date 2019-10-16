@@ -37,7 +37,7 @@
 
 C++ contains additional syntax in order to make C an object orientated
 language. As such, it's new syntax deviates away from other object orientated
-languages like Java or Python. Since C++ is mostly a superset of C, all the
+languages like Java or Python. Since C++ is mostly a super-set of C, all the
 programming principles that C violates will apply.
 
 C++ uses `->` to dereference and access a member of a pointer pointing to an
@@ -53,7 +53,7 @@ violates the syntactic consistency principle.
 C++ allows `and` and `or` for boolean conditionals, in addition to `&&` and
 `||`. Thus, this can potentially improve readability. It will reduce
 writability, but since the compiler does not enforce this rule, it really does
-not impact writablility and it's entirely up to the programmer.
+not impact writability and it's entirely up to the programmer.
 
 C++ requires semicolon at the end of a class declaration, exactly to how C
 requires semicolon at the end of a `struct` or `enum` declaration. Seeing as

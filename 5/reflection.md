@@ -23,7 +23,7 @@ using external tools using `bc` or `dc`. Bash natively supports regex (`[[
 "${str}" =~ ${regex} ]]`) as well as using standard UNIX programs like `grep`
 and `awk` to do regex. Thus this can reduce Bash's simplicity and thus makes
 shell script harder to read and maintain. However, making it a very much
-orthorgonal langauge considering that any program that takes in input and
+orthogonal language considering that any program that takes in input and
 outputs to stdout can extend Bash.
 
 All variables declared in a function scope within Bash is global by default,
@@ -79,12 +79,12 @@ deviate ever so slightly, and writability for the irregularity in the language.
 
 ### Ruby
 
-Initally, Ruby feels just like Python, but as this is my first time writing in
+Initially, Ruby feels just like Python, but as this is my first time writing in
 Ruby and my Ruby program is literally one line long, it's not easy to write
 about a language I have almost next to no experience with.
 
-Ruby overally feels like an improvement of Perl. It does not take in any ideas
-from shell which does not apply well for large scale projects. It follow's
+Ruby overalls feels like an improvement of Perl. It does not take in any ideas
+from shell which does not apply well for large scale projects. It follows
 Python's example of omitting braces and relying on indentation, which improves
 writability.
 

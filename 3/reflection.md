@@ -21,12 +21,12 @@ like a "normal" and "sane" programming language.
 
 Ada and Pascal shares many similar syntax, including `begin..end` and `if..end
 if` constructs. Using worded keywords increases readability, however it may or
-may not increase writeability. The way of parameter passing within Ada is very
+may not increase writability. The way of parameter passing within Ada is very
 nice. The option to pass by value and pass by reference is still there, using
 mode keywords such as `in`, `access` and `aliased`. But a feature of Ada is
 pass by result. This utilises the `out` or `in out` mode. This is really handy
 because it would remove the need, at least in my case, for using pointers. For
-example, swaping values within 2 variables in C as a function call looks like
+example, swapping values within 2 variables in C as a function call looks like
 this:
 
 \begin{lstlisting}[language=c,style=codenonum]
@@ -49,27 +49,27 @@ begin
 end Swap;
 \end{lstlisting}
 
-No pointers necessary. This alone makes Ada a lot more readable, writeable as
+No pointers necessary. This alone makes Ada a lot more readable, writable as
 well as more reliable than C. Unfortunately, the only other language that seems
 to have this feature is C#.
 
 Ada is object orientated. A version of Ada in 1995 was made to make it an
 object orientated. The syntax for accessing an object's methods is
 `Object'Method()` which not the same for other's languages `Object.method()`.
-This may be seens as decrease in readability and writability as it does not
+This may be seen as decrease in readability and writability as it does not
 conform to other languages, however, it can be argued that it's just the syntax
 for Ada and the programmer should just get used to it.
 
 Ada's way of accessing array elements annoys me. It uses `()` instead of `[]`,
-which breaks the syntatic consistency principle. This can reduce reliability
-and readablilty because the programmer deciphering Ada source code needs to
+which breaks the syntactic consistency principle. This can reduce reliability
+and readability because the programmer deciphering Ada source code needs to
 remember if the identifier is for a method call or an array.
 
 Ada's inclusion of exceptions and loops with the exit condition keywords makes
 "bad programming practices" like gotos and breaks non-existent in Ada. This
-improves reliability as those keywords may introduce unwanted sideeffects.
+improves reliability as those keywords may introduce unwanted side effects.
 However, it is important to point out that exception handling in Ada breaks the
-structured programming principle as no other contructs of Ada uses the dynamic
+structured programming principle as no other constructs of Ada uses the dynamic
 scope to exit the current code block of execution. This, in my opinion, this
 does not seem to affect readability, writability or reliability.
 
