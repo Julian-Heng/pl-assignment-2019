@@ -2,6 +2,7 @@ Programming Languages Assignment
 By Julian Heng (19473701)
 
 Report is ./report.pdf
+To make report, run `./make_report.sh`, requires pandoc
 
 HOW TO RUN ASSIGNMENTS:
 
