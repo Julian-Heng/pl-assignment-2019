@@ -1,0 +1,18 @@
+Programming Languages Assignment
+By Julian Heng (19473701)
+
+Report is ./report.pdf
+
+HOW TO RUN ASSIGNMENTS:
+
+For directories that have makefiles, it is as simple as running `make` and
+then going into the build directory and run the executable.
+
+For directories that do not have makefiles, there exist a file called `cmdline`
+that would demonstrate how to run the program. If the file `cmdline` does not
+exist, then it implies that the source file is meant to be interpreted and has
+a shebang at the start of the file, to which just invoke it like a shell
+script.
+
+If it is appropriate, there exist a shell script called `test.sh`. This is to
+verify if the program is functioning as intended.
