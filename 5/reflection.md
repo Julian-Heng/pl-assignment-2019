@@ -12,6 +12,14 @@
 \lstinputlisting[style=code,language=ruby]{./5/conf.ruby}
 
 
+## Program Output
+\lstinputlisting[firstline=0,lastline=8,style=codenonum]{./5/output}
+\begin{lstlisting}
+...
+\end{lstlisting}
+\lstinputlisting[firstline=991,lastline=999,style=codenonum]{./5/output}
+
+
 ## Reflection
 ### BASH
 
