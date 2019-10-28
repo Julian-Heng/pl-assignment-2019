@@ -1,4 +1,4 @@
-# Scripting- Week 5
+# Scripting - Week 5
 ## Source Code
 ### BASH
 \lstinputlisting[style=code,language=bash]{./5/conf.bash}

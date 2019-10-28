@@ -8,7 +8,7 @@
 \lstinputlisting[language={},style=codenonum]{./3/cmdline}
 
 
-## Output
+### Output
 \begin{multicols}{2}
 \lstinputlisting[language={},style=codenonum]{./3/output}
 \end{multicols}
@@ -16,8 +16,8 @@
 
 ## Reflection
 
-Ada is the first programming language in this course so far that actually feels
-like a "normal" and "sane" programming language.
+Ada is the first programming language in this course so far that feels like a
+"normal" and "sane" programming language, compared to FORTRAN 77 and Algol68.
 
 Ada and Pascal shares many similar syntax, including `begin..end` and `if..end
 if` constructs. Using worded keywords increases readability, however it may or
