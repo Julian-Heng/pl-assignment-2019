@@ -10,6 +10,7 @@ Object subclass: Fizzbuzz [
 
     main [
         self getStart to: self getEnd do: [:i|
+            "Check each number to see what they should be printing"
             (self isFizz:   i) ifTrue: [Transcript show: 'Fizz'].
             (self isBuzz:   i) ifTrue: [Transcript show: 'Buzz'].
             (self isNormal: i) ifTrue: [Transcript show: i printString].

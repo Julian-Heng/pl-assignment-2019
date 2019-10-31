@@ -24,6 +24,7 @@ void Book::setISBN(std::string ISBN) { this->ISBN = ISBN; }
 
 std::ostream& operator<<(std::ostream& strm, const Book& b)
 {
+    // Return a string representation of a book
     return strm <<
         "Book(" <<
         "ID: " << b.getID() << ", " <<

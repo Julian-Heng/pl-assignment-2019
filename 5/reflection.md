@@ -23,28 +23,26 @@
 ## Reflection
 ### BASH
 
-Bash is very orthogonal. String addition can be done using `printf -v
-var_name`, or using `var_name="${str1} Another string ${str2}"`. No integer
-data types, all numbers are represented as strings, and Bash can only handle
-integer arithmetics using `$(())` in addition to float or integer arithmetics
-using external tools using `bc` or `dc`. Bash natively supports regex (`[[
-"${str}" =~ ${regex} ]]`) as well as using standard UNIX programs like `grep`
-and `awk` to do regex. Thus this can reduce Bash's simplicity and thus makes
-shell script harder to read and maintain. However, making it a very much
-orthogonal language considering that any program that takes in input and
-outputs to stdout can extend Bash.
+Bash is not very orthogonal. String addition and concatanation can be done
+using `printf -v var_name "format string" "${variables}"`, or using
+`var_name="${str1} Another string ${str2}"`. There are no integer data in bash
+as they're all represented as strings, and Bash can only handle integer
+arithmetics using `$(())` in addition to float or integer arithmetics using
+external tools using `bc` or `dc`. Bash natively supports regex (`[[ "${str}"
+=~ ${regex} ]]`) as well as using standard UNIX programs like `grep` and `awk`
+to perform regex operations. Thus, this can reduce Bash's overall simplicity
+and decreases orthogonality, making shell script harder to read and maintain,
+given the multitudes of ways to perform a task.
 
 All variables declared in a function scope within Bash is global by default,
 unless `local` builtin is specified. By default, that would reduce readability
 if that same variable is used in a different function, making it difficult to
 trace the flow of the program. Hence structured programming is violated.
-However, Bash does not have a keyword for goto, thus structured programming is
-not violated in that sense.
 
-Bash's array passing ends up as one giant array in a function, which violates
-the preservation of information principal. This will hinder writability as you
-can't pass in 2 arrays at a time, unless you do a hack job of giving the sizes
-of the arrays as you pass them in.
+Bash's array passing ends up as one giant array within a function, which
+violates the preservation of information principal. This will hinder
+writability as you can't pass in 2 arrays at a time, unless you do a hack of a
+job giving the sizes of the arrays as you pass them in.
 
 Bash immediately exits when it detects an invalid syntax within the language,
 thus it does not violate the security principle, unlike Python. This helps the
@@ -61,6 +59,13 @@ $ type [[
 [[ is a shell keyword
 \end{lstlisting}
 
+This is a downside because bash would never check if the arguments to a program
+is correct because that is entirely outside the scope of bash's responsibility.
+For example, forgetting to escape out a semi-colon within an argument will
+break the statement into 2 stataments, bash then attempting to run the argument
+as a command. Entirely valid syntax, but would fail within the program
+nonetheless.
+
 
 ### Perl
 
@@ -69,20 +74,23 @@ doing function arguments, in that every argument you pass into a function get
 concatenated into a single list accessible via a special variable that expands
 to every element (Bash: `$@`, Perl: `@_`) and a way to access each individual
 element passed into the function (Bash: `$1 $2 $3 ...`, Perl: `$_[0], $_[1]
-...`). But Perl goes one step a bit too far and manage to involve pointers into
-it's subroutine. Bash does not do this in that you can technically pass in
-multiple arrays, but it's all one big array and you'd just give up and choose a
-better language for the job. Unlike Perl which enables you by giving you
-pointers, allowing arrays to be passed into subroutines through a nasty
-work around. This is in violation of preservation of information.
+...`). But Perl also includes allowing references to variables as arguments for
+a function, which is the only way of passing multiple arrays into a function.
+Bash does not do this in that you can technically pass in multiple arrays, but
+it's all one big array and you'd just give up and choose a better language for
+the job. Unlike Perl which enables you by giving you pointers, allowing arrays
+to be passed into subroutines through a nasty work around. This is in violation
+of preservation of information.
 
-Perl has no regularity. `print($var);` or `print $var`?  Both. `my $var` or
-`my($var)`? Both, again. Semicolons can be omitted, and the code will work.
-Sometimes you need the semicolon or else it won't run.  Subroutines can be
-called with or without `&` preceding it. I didn't know that you meant to call
-it with `&`, but I didn't know because my code works anyway, so who cares.
-This makes Perl multitudes harder for readability, as everyone's code will
-deviate ever so slightly, and writability for the irregularity in the language.
+Perl has no regularity and low orthogonality. `print($var);` or `print $var`?
+Both will produce the same result. `my $var` or `my($var)`? Both, again.
+Semicolons can be omitted, and the code will work.  Sometimes you need the
+semicolon or else it won't run.  Subroutines can be called with or without `&`
+preceding it. I didn't know that you meant to call it with `&`, but I didn't
+know because my code works anyway, so who cares. This makes Perl multitudes
+harder for readability, as everyone's code will deviate ever so slightly, and
+writability for the irregularity in the language. As such, Perl would violate
+both the regulartity and orthogonality programming principle.
 
 
 ### Ruby
@@ -94,7 +102,9 @@ about a language I have almost next to no experience with.
 Ruby overalls feels like an improvement of Perl. It does not take in any ideas
 from shell which does not apply well for large scale projects. It follows
 Python's example of omitting braces and relying on indentation, which improves
-writability.
+writability. Ruby is an object orientated language, which does make it comply
+with the modularity, information hiding and possibly the abstraction
+programming principle.
 
 
 ## Weekly Question

@@ -11,8 +11,8 @@
 
 ## Reflection
 
-Algol68 introduces the idea of code blocks, which for some reason makes writing
-in Algol much more easily for me.
+Algol68 introduces code blocks, which makes it a much more like a modern
+programming language compared to FORTRAN.
 
 It's structure reminds me of pseudocode that we had to write in 1st year units
 so it's ideas of using `:=` as it's assignment operator wasn't foreign to me.
@@ -38,5 +38,10 @@ Assume your program pauses when it prints out FizzBuzz. Draw the stack with all
 activation records, and both static and dynamic chains, at this point.
 
 ![](./2/Activation_Record.png "Activation Record")
+
+With the way fizzbuzz is implementent, when a number is divisible by 15, it'll
+enter both code block C and code block D. As such, I've made the assumption
+that when it prints fizzbuzz, it'll be executing code block D and code block C
+is removed from the activation record.
 
 \newpage

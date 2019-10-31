@@ -13,10 +13,12 @@ int main(int argc, char** argv)
     int ret = 0;
     BookSorter* sorter = setup(argc, argv);
 
+    // If invalid arguments are passed
     if (! sorter)
         ret = 1;
     else
     {
+        // Sort and print
         sorter->setBooks(parseBooks());
         sorter->sort();
         for (Book b : sorter->getBooks())
@@ -35,6 +37,7 @@ BookSorter* setup(int argc, char** argv)
     std::string str;
     int choice = 0;
 
+    // Determine which sorter to use
     for (int i = 1; i < argc; i++)
     {
         str = argv[i];
@@ -74,6 +77,7 @@ std::vector<Book> parseBooks()
     std::vector<Book> books;
     std::string in;
 
+    // Use regex to parse books
     std::regex reg ("^(\\d+),(.*),([^,]*)$");
     std::smatch match;
 
@@ -81,6 +85,7 @@ std::vector<Book> parseBooks()
     {
         while (std::regex_search(in, match, reg))
         {
+            // Right amounts of matches
             if (match.size() == 4)
             {
                 newBook = Book();
@@ -97,6 +102,14 @@ std::vector<Book> parseBooks()
     return books;
 }
 
+
+/*
+ * Book sorter implementations
+ *
+ * -1 means that a is less than b
+ *  0 means that a is equal to b
+ *  1 means that a is more than b
+ */
 
 int BookSortByID::compare(Book b1, Book b2)
 {

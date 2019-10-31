@@ -16,8 +16,8 @@
 
 ## Reflection
 
-Ada is the first programming language in this course so far that feels like a
-"normal" and "sane" programming language, compared to FORTRAN 77 and Algol68.
+Ada feels more like a refined programming language so far, compared to both
+FORTRAN 77 and Algol68.
 
 Ada and Pascal shares many similar syntax, including `begin..end` and `if..end
 if` constructs. Using worded keywords increases readability, however it may or

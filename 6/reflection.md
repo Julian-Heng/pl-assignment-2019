@@ -25,7 +25,7 @@ Smalltalk is a very simple language, with only having exactly 6 keywords:
   5. `super`
   6. `thisContext`
 
-Thus Smalltalk is in compliment with the simplicity principle.
+Thus Smalltalk complies with the simplicity principle.
 
 Smalltalk is highly structured as it encompasses object orientation. As such,
 it is easy to see the flow of the program through it's use of messaging between
@@ -43,6 +43,13 @@ and '`!`' ends a statement. It is actually incredibly hard to find the
 difference between the two, but most example uses '`.`' and '`!`' seems to work
 in specific context. As such, I would argue that it violates the syntactic
 consistency principle. Thus it can affect readability and writability.
+
+Smalltalk is an object orientated language. As such, it would comply with
+abstraction, information hiding and the modular programming principle.
+Abstraction is achieved by concealing algorithms within classes, to which the
+client using those algorithms can just use them as objects. Information hiding
+is achieved by hiding class fields within classes and objects. Modularity is
+achieved by allowing importing packages, albeit cumbersome.
 
 
 ## Weekly Question
