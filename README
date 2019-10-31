@@ -1,8 +1,8 @@
 Programming Languages Assignment
 By Julian Heng (19473701)
 
-Report is ./report.pdf
-To make report, run `./make_report.sh`, requires pandoc
+Report is ./report.pdf. To make report, run `./make_report.sh`, requires pandoc
+and probably some latex packages
 
 HOW TO RUN ASSIGNMENTS:
 
@@ -17,3 +17,8 @@ script.
 
 If it is appropriate, there exist a shell script called `test.sh`. This is to
 verify if the program is functioning as intended.
+
+So to summarise:
+    If directory has Makefile, run `make` to build and `make test` to run tests
+    If directory has no Makefile, but has a `test.sh`, execute `test.sh`
+    Else, read `cmdline` or run the source file directly

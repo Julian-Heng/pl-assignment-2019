@@ -12,10 +12,8 @@ all: $(EXEC)
 	gnatbind $(BUILD)/$(^:%.adb=%) && \
 		gnatlink $(BUILD)/$(^:%.adb=%) -o $(BUILD)/$(^:%.adb=%)
 
-
 clean:
 	$(RM) -rv $(BUILD)
-
 
 test: all
 	@bash test.sh

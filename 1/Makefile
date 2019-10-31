@@ -12,8 +12,5 @@ all: $(EXEC)
 clean:
 	$(RM) -rv $(BUILD) ./reflection.pdf
 
-docs:
-	pandoc --from=markdown --output=reflection.pdf reflection.md
-
 test: all
 	@bash test.sh
