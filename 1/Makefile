@@ -10,7 +10,7 @@ all: $(EXEC)
 	$(FC) -o $(BUILD)/$@ $^
 
 clean:
-	$(RM) -rv $(BUILD) ./reflection.pdf
+	$(RM) -rv $(BUILD)
 
 test: all
 	@bash test.sh
