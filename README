@@ -16,7 +16,9 @@ a shebang at the start of the file, to which just invoke it like a shell
 script.
 
 If it is appropriate, there exist a shell script called `test.sh`. This is to
-verify if the program is functioning as intended.
+verify if the program is functioning as intended. For all of the fizzbuzz
+programs, no output is good. Otherwise, they'll print the program output for
+you to check.
 
 If it is appropriate, there also exist a file called `input`. For all intents
 and purpose, the point of the input file is to be piped into the program as
