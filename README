@@ -18,7 +18,12 @@ script.
 If it is appropriate, there exist a shell script called `test.sh`. This is to
 verify if the program is functioning as intended.
 
+If it is appropriate, there also exist a file called `input`. For all intents
+and purpose, the point of the input file is to be piped into the program as
+stdin. As such, you'd call the program like `./build/executable < input`.
+
 So to summarise:
-    If directory has Makefile, run `make` to build and `make test` to run tests
-    If directory has no Makefile, but has a `test.sh`, execute `test.sh`
-    Else, read `cmdline` or run the source file directly
+
+    1. If directory has Makefile, run `make` to build and `make test` to run tests
+    2. If directory has no Makefile, but has a `test.sh`, execute `test.sh`
+    3. Else, read `cmdline` or run the source file directly
