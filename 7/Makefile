@@ -8,5 +8,8 @@ $(EXEC): $(OBJ)
 	@mkdir -p ./build
 	$(CXX) -o ./build/$@ $^
 
+test: $(EXEC)
+	@bash test.sh
+
 clean:
 	$(RM) -rv $(OBJ) ./build
